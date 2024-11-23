@@ -29,18 +29,18 @@ jobs:
     - name: Build Docker image
       run: |
         pwd && ls
-        docker build -t Peanut-yoon/backend:${{ github.run_number }} ./backend
-        docker build -t Peanut-yoon/frontend:${{ github.run_number }} ./frontend
-        docker tag Peanut-yoon/frontend:${{ github.run_number }} Peanut-yoon/frontend:latest
-        docker tag Peanut-yoon/backend:${{ github.run_number }} Peanut-yoon/backend:latest
+        docker build -t p2nutz/backend:${{ github.run_number }} ./backend
+        docker build -t p2nutz/frontend:${{ github.run_number }} ./frontend
+        docker tag p2nutz/frontend:${{ github.run_number }} p2nutz/frontend:latest
+        docker tag p2nutz/backend:${{ github.run_number }} p2nutz/backend:latest
         
     # 5. Docker Hub에 이미지 푸시
     - name: Push Docker image to Docker Hub
       run: |
-        docker push Peanut-yoon/backend:${{ github.run_number }}
-        docker push Peanut-yoon/frontend:${{ github.run_number }}
-        docker push Peanut-yoon/backend:latest
-        docker push Peanut-yoon/frontend:latest
+        docker push p2nutz/backend:${{ github.run_number }}
+        docker push p2nutz/frontend:${{ github.run_number }}
+        docker push p2nutz/backend:latest
+        docker push p2nutz/frontend:latest
         
     # 6. SSH 설정
     - name: Set up SSH keys
